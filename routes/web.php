@@ -3,6 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Product;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\AdminCategoriesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +21,22 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-
-Route::get('/login',function(){
-   return view('login');
+Route::get('/', function () {
+    return view('dashboard');
 });
 
-Route::post('/login',[UserController::class,'login']);
-Route::get('/',[ProductController::class,'index']);
+//Route::get('/dashboard', function () {
+   // return view('dashboard');
+//})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+Route::get('/',function(){
+   return view('home');
+});
+
+
+Route::get('/UserPage',[ProductController::class,'shop']);
+Route::get('/checkout',[CheckoutController::class,'checkout']);
+Route::get('/dashboard',[HomeController::class,'index']);
+Route::get('/categories',[CategoriesController::class,'categories']);
+Route::get('/adminCategories',[AdminCategoriesController::class,'adminCategories']);
