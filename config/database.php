@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Str;
 
+
+$DATABASE_URL=parse_url('https://final-project-capstone.herokuapp.com/');
 return [
 
     /*
@@ -15,7 +17,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -66,11 +68,11 @@ return [
         'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', 'ec2-54-227-248-71.compute-1.amazonaws.com'),
             'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', 'df8cfnuarb0h6s'),
+            'username' => env('DB_USERNAME', 'kndxbredkndpoy'),
+            'password' => env('DB_PASSWORD', '035958630b337748d9bec5c3968449060266850d0c89365a9707cca61737e70d'),
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
